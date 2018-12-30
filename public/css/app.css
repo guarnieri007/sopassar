@@ -1,0 +1,645 @@
+:root {
+    --color1: rgba(7, 79, 138, 0.3);
+    --color2: #4488bb;
+    --color3: rgb(255, 255, 255);
+    --color4: rgb(224, 210, 7);
+    --color5: rgb(37, 85, 37);
+    --color6: #4487bb;
+    --color7: rgba(68, 135, 187, 0.5);
+    --color8: rgba(68, 135, 187, 0.7);
+    --color9: rgba(68, 135, 187, 0.4);
+    --color10: rgb(65, 66, 85);
+    --color11: #4A91C7;
+
+    --sombra_navbar: #1E216E;
+
+    padding: 0px;
+    margin: 0px;
+}
+
+@font-face {
+    font-family: Titania-Regular;
+    src: url("../font/Titania-Regular.ttf");
+}
+
+@font-face {
+    font-family: Titania-Outline;
+    src: url("../font/Titania-Outline.ttf");
+}
+@font-face {
+    font-family: Titania-Shadow;
+    src: url("../font/Titania-Shadow.ttf");
+}
+@font-face {
+    font-family: Antique;
+    src: url("../font/antique_book_cover.otf");
+}
+
+@font-face {
+    font-family: Texto;
+    src: url("../font/Simple\ Print.ttf");
+}
+
+@font-face {
+    font-family: Acido;
+    src: url("../font/accid___.ttf");
+}
+
+@font-face {
+    font-family: Gravidade;
+    src: url("../font/Gravity-Book.otf");
+}
+
+html, head, body {
+    width: 100%;
+    min-height: 100%;
+    height: auto;
+    font-size: 16px;
+}
+
+destaque {
+    font-weight: 900;
+    font-family: "Gravidade";
+}
+
+body {
+    background-color:#000;
+    background-image: radial-gradient(closest-side, transparent 97%, #4A91C7 99%),
+    radial-gradient(closest-side, transparent 98%, #417EAD 99%);
+    background-size:50px 50px;
+    background-position:0 0, 25px 25px;
+    background-attachment: fixed;
+    padding: 0px;
+    margin: 0px;
+}
+
+.conteudo {
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    margin-top: 0px;
+    padding-top: 10px;
+    width: 100%;
+    background-color: var(--color3);
+    border-radius: 5px;
+    border-top: #000 solid 2px;
+    border-bottom: #000 solid 2px;
+    margin-bottom: 5%;
+}
+
+.header {
+    padding: 0px 0px;
+    width: 100%;
+    height: auto;
+    min-height: 200px;
+    background: linear-gradient(var(--color3) 50%, rgba(255,255,255,0) 0) 0 0,
+    radial-gradient(circle closest-side, var(--color3) 53%, rgba(255,255,255,0) 0) 0 0,
+    radial-gradient(circle closest-side, var(--color3) 50%, rgba(255,255,255,0) 0) 55px 0 var(--color2);
+    background-size: 110px 200px;
+    background-repeat: repeat-x;
+}
+
+.conteudo .header h1 {
+    margin: 50px 0px 0px 0px;
+    font-variant-caps: petite-caps;
+    text-align: center;
+    font-size: 3.2rem;
+    font-family: "Gravidade";
+}
+
+.conteudo p {
+    background-color: var(--color2);
+    color: #fff;
+    text-align: center;
+    font-size: 2.6rem;
+    padding: 0px 4% 20% 4%;
+    font-family: 'Texto';
+    margin-bottom: 0px;
+}
+
+h1 {
+    font-variant: small-caps;
+    color: var(--color2);
+    font-size: 4rem;
+    font-family: Antique;
+}
+
+div ul {
+    padding: 0px;
+}
+
+.explicacao {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contato {
+    margin-top: 10px;
+    background-color: #000;
+    color: #fff;
+    width: 100%;
+    padding-bottom: 5%;
+}
+.contato h1 {
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 40px;
+}
+.explicacao ul li {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border: 3px solid #000;
+    /*padding-bottom: 56.25%;*/
+    color: var(--color2);
+    background-color: var(--color3);
+    border-radius: 5%;
+    text-align: center;
+    padding: 30% 4%;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    font-size: 1.4rem;
+    color: var(--color3);
+    text-shadow: var(--color5) 0px 1px 1px, var(--color5) 0px -1px 1px, var(--color5) 1px 0px 1px, var(--color5) -1px 0px 1px;
+    list-style: none;
+}
+
+.explicacao ul li:nth-child(1) {
+    background-image: url("../img/carro.svg");
+    background-size: 100% auto;
+    background-blend-mode: multiply;
+}
+
+.pacotes {
+    margin: 0px;
+    border-top: #88AFE9 solid 1px;
+}
+
+body .navbar {
+    position: sticky;
+    top: 0px;
+    z-index: 2;
+    background-color: #162B3B;
+}
+
+body .navbar * {
+    color: var(--color2);
+    text-shadow: var(--sombra_navbar) 0px 1px 1px, var(--sombra_navbar) 0px -1px 1px, var(--sombra_navbar) 1px 0px 1px, var(--sombra_navbar) -1px 0px 1px;
+}
+
+.navbar .collapse .navbar-nav .dropdown-item:focus, .navbar .collapse .navbar-nav .dropdown-item:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: #7C7EA1;
+    border-radius: 25%;
+}
+
+.navbar button span {
+    width: 100%;
+    height: 100%;
+    line-height: 100%;
+    color: #fff;
+}
+
+.navbar button {
+    background-color: #3E4F69;
+}
+
+.navbar button:focus {
+    background-color: #3E4F69;
+}
+
+#carrinho {
+    display: block;
+    width: auto;
+    height: 40px;
+    font-size: 1.2rem;
+    line-height: 40px;
+}
+
+.pacotes h1 {
+    color: #88afe9;
+    font-family: "Acido";
+    font-size: 4.2rem;
+    text-align: center;
+    text-shadow: var(--color11) 0px 1px 1px, var(--color3) 0px -1px 1px, var(--color11) 1px 0px 1px, var(--color3) -1px 0px 1px;
+}
+
+.pacotes h1:first-child {
+    background-color: #3E4F69;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    font-size: 3rem;
+    line-height: 60px;
+    height: 60px;
+}
+
+.carousel {
+    width: 100%;
+    color: #fff;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: gray;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+    height: calc(100vh - 111px);
+}
+
+.carousel .mySlides {
+    background-image: linear-gradient(to right, var(--color2) 10%, #1D4C6E 50%, var(--color2) 90%);
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel .mySlides h1 {
+    position: absolute;
+    text-align: center;
+    font-size: 2.3rem;
+    top: 5%;
+    left: 10%;
+    right: 10%;
+    color: rgb(136, 175, 233);
+    font-family: "Titania-Regular";
+    text-shadow: var(--color3) 0px 1px 1px, var(--color11) 0px -1px 1px, var(--color3) 1px 0px 1px, var(--color11) -1px 0px 1px;
+}
+
+.carousel .mySlides h2 {
+    position: absolute;
+    text-align: center;
+    font-size: 2rem;
+    top:30%;
+    left: 25%;
+    right: 25%;
+    text-shadow: var(--color11) 0px 1px 1px, var(--color11) 0px -1px 1px, var(--color11) 1px 0px 1px, var(--color11) -1px 0px 1px;
+}
+
+
+.carousel .mySlides h3 {
+    position: absolute;
+    font-size: 1.3rem;
+    bottom: 5%;
+    left:  10%;
+    right: 10%;
+    text-align: center;
+    text-shadow: var(--color11) 0px 1px 1px, var(--color11) 0px -1px 1px, var(--color11) 1px 0px 1px, var(--color11) -1px 0px 1px;
+}
+
+
+.carousel .mySlides img {
+    display: block;
+    width: auto;
+    max-height: 100%;
+    height: 100%;
+    max-width: 100%;
+    margin: 0px auto;
+}
+
+.carousel .mySlides .unitario {
+    max-width: 90%;
+    max-height: 90%;
+    height: 90%;
+    padding:4% 0px;
+}
+
+.carousel .mySlides a {
+    position: absolute;
+    top: 60%;
+    font-family: "Acido";
+    font-size: 1.6rem;
+    text-align: center;
+    margin-left: 25%;
+    width: 50%;
+}
+
+.w3-button {
+    opacity: 0.5;
+    background-color: rgba(224, 209, 7, 0);
+    border: none;
+    color: #fff;
+    font-size: 2.5rem;
+    text-shadow: var(--color11) 0px 1px 1px, var(--color11) 0px -1px 1px, var(--color11) 1px 0px 1px, var(--color11) -1px 0px 1px;
+}
+
+.w3-button:focus {
+    text-shadow: var(--color4) 0px 1px 1px, var(--color4) 0px -1px 1px, var(--color4) 1px 0px 1px, var(--color4) -1px 0px 1px;
+    outline: none;
+    color: aliceblue;
+}
+
+.w3-display-left {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    width: 10%;
+}
+
+.w3-display-right {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    width: 10%;
+    opacity: 0.5;
+}
+
+/* usuário e senha */
+
+.senha {
+    width: 90%;
+    margin: 100px auto;
+    background-color: aliceblue;
+    padding: 2%;
+}
+
+.senha .panel-heading {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.senha a {
+    width: auto;
+    color: rgb(1, 183, 196);
+}
+
+.senha a:hover {
+    color: rgb(3, 64, 68);
+}
+
+.senha a:nth-child(3) {
+    text-align: center;
+
+    width: 100%;
+
+    display: block;
+}
+
+/* Checkout Page */
+.checkout > div {
+    background-color: rgba(240, 248, 255, 0.988);
+    box-shadow: -4px 4px 0px 2px rgba(0, 0, 0, 0.2);
+}
+
+.checkout > div h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-family: Gravidade;
+    color: #3E4F69;
+}
+
+.endereco.cartao {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.endereco.cartao > div {
+    border: 1px #000 solid;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.endereco.cartao div > div h3 {
+    font-size: 0.8rem;
+}
+
+.endereco.cartao div > div h3 span {
+    font-size: 0.9rem;
+}
+
+/* carrinho */
+
+.carrinho_listar.list-group-item {
+    display: flex;
+}
+
+.carrinho_listar.list-group-item div {
+    align-self: center;
+    display: flex;
+}
+
+.carrinho_listar.list-group-item div * {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*badge quantidade*/
+.carrinho_listar.list-group-item div:nth-child(1) {
+    vertical-align: bottom;
+    font-size: 1.15rem;
+}
+
+/*product name*/
+.carrinho_listar.list-group-item div:nth-child(2) {
+    display: initial;
+}
+
+/* price */
+.carrinho_listar.list-group-item div:nth-child(3) {
+    font-size: 1.1rem;
+}
+
+/* Action*/
+.carrinho_listar.list-group-item div:nth-child(4) button {
+    font-size: 0.8rem;
+}
+
+/* Fim do usuário e senha */
+
+/* Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575.98px) {
+    .navbar .collapse .navbar-nav .dropdown-item:focus, .navbar .collapse .navbar-nav .dropdown-item:hover {
+        text-decoration: none;
+        background-color: initial;
+        border-radius: 0px;
+    }
+    .navbar .collapse .navbar-nav {
+        text-decoration: none;
+        background-color: #132533;
+    }
+
+    .navbar-nav .dropdown-menu {
+        background-color: #1B3448;
+    }
+    .navbar-nav .dropdown-divider {
+        border-top: 1px solid #4A91C7;
+    }
+
+    .navbar-nav .nav-item #navbarDropdown {
+        padding-left: 1.5rem;
+    }
+}
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+    .navbar .collapse .navbar-nav .dropdown-item:focus, .navbar .collapse .navbar-nav .dropdown-item:hover {
+        text-decoration: none;
+        background-color: initial;
+        border-radius: 0px;
+    }
+    .navbar .collapse .navbar-nav {
+        text-decoration: none;
+        background-color: #132533;
+    }
+
+    .navbar-nav .dropdown-menu {
+        background-color: #1B3448;
+    }
+    .navbar-nav .dropdown-divider {
+        border-top: 1px solid #4A91C7;
+    }
+    
+    .navbar-nav .nav-item #navbarDropdown {
+        padding-left: 1.5rem;
+    }
+
+    .conteudo p {
+        padding-bottom: 9%;
+    }
+
+    .explicacao ul li {
+        padding: 20% 4%;
+        font-size: 1.8rem;
+        background-position: 50% 70%;
+    }
+
+    .carousel .mySlides h1 {
+        font-size: 3.3rem;
+    }
+
+    .carousel .mySlides {
+        height: 300px;
+    }
+
+    .carousel .mySlides img {
+        height: 300px;
+    }
+
+    .carousel .mySlides .unitario {
+        height: auto;
+        max-width: 80%;
+        max-height: 300px;
+        padding-top:15px;
+    }
+
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .navbar .collapse .navbar-nav .dropdown-item:focus, .navbar .collapse .navbar-nav .dropdown-item:hover {
+        text-decoration: none;
+        background-color: initial;
+        border-radius: 0px;
+    }
+    .navbar .collapse .navbar-nav {
+        text-decoration: none;
+        background-color: #132533;
+    }
+
+    .navbar-nav .dropdown-menu {
+        background-color: #1B3448;
+    }
+    .navbar-nav .dropdown-divider {
+        border-top: 1px solid #4A91C7;
+    }
+    .conteudo p {
+        padding-bottom: 9%;
+    }
+
+    .navbar-nav .nav-item #navbarDropdown {
+        padding-left: 1.5rem;
+    }
+
+    .carousel .mySlides a {
+        font-size: 1.6rem;
+        text-align: center;
+        margin-left: 37.5%;
+        width: 25%;
+    }
+
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+    .senha {
+        width: 50%;
+    }
+
+    .conteudo p {
+        padding-bottom: 9%;
+    }
+
+    .explicacao {
+        width: 80%;
+        margin: 10% auto;
+    }
+    .carousel .mySlides a {
+        font-size: 1.6rem;
+        text-align: center;
+        margin-left: 41.5%;
+        width: 17%;
+    }
+
+ }
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+    .senha {
+        width: 50%;
+    }
+
+    .conteudo p {
+        padding-bottom: 5%;
+    }
+
+    .conteudo {
+        margin-bottom: 0%;
+    }
+
+    .explicacao {
+        width: 70%;
+        margin: 2% auto;
+    }
+
+    .explicacao ul li {
+        font-size: 4.5rem;
+        color: aliceblue;
+        text-shadow: var(--color2) 0px 1px 1px, var(--color2) 0px -1px 1px, var(--color2) 1px 0px 1px, var(--color2) -1px 0px 1px;
+        padding: 20% 6%;
+    }
+
+    .pacotes h1 {
+        font-size: 4rem;
+    }
+
+    .carousel .mySlides a {
+        font-size: 1.6rem;
+        text-align: center;
+        margin-left: 44%;
+        width: 12%;
+    }
+
+    .carousel {
+        width: 100%;
+        height: calc(100vh - 111px);
+    }
+    .pacotes {
+        margin-bottom: 0px;
+    }
+
+    .pacotes .mySlides {
+        height: 100%;
+    }
+
+    .carousel .mySlides img {
+        height: 99%;
+    }
+    .carousel .mySlides .unitario {
+        max-height: 100%;
+        height: 90vh;
+    }
+}
