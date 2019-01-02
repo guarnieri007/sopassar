@@ -16,6 +16,8 @@ class CartoesTableSeeder extends Seeder
             'numeracao' => '412345312312',
             'bandeira' => 'visa',
             'cvc' => '152',
+            'mes' => '01',
+            'ano' => '20',
             'endereco' => 'Rua dos Casas Grandes',
             'numero' => '171',
             'bairro' => 'Jardim Do Florista',
@@ -28,9 +30,11 @@ class CartoesTableSeeder extends Seeder
 
         $cartao = new App\Cartao([
             'titular' => 'felipe guarnieri',
-            'numeracao' => '412157312312',
+            'numeracao' => '412157312332',
             'bandeira' => 'master',
             'cvc' => '192',
+            'mes' => '10',
+            'ano' => '23',
             'endereco' => 'Rua dos Casas Grandes',
             'numero' => '171',
             'bairro' => 'Jardim Do Florista',
