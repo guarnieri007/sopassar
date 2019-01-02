@@ -69,38 +69,40 @@
             @endif
 
             <hr>
-            @if (count($cartoes) > 0)
+        <div class="navbar-collapse col-10 offset-1" id="cartao">
+            <h2>Selecione o cartão para realizar o pagamento</h2>
+                <p><a href="{{ route('card') }}">Para adicionar um novo cartão, clique aqui.</a></p>
             @foreach ($cartoes as $cartao)
-            {{$cartao->bandeira}}
-        @endforeach
-            @else
-                sem cartão
-            @endif
-            
-            <h2>Forma de pagamento</h2>
-            <p>Cartão de crédito</p>
-            <form action="{{route('checkout')}}" method="POST">
                 <div class="row">
-                    <div class="col-sm-6 col-md-6 col-xs-6">
-                        <div class="form-group">
-                            <label for="address">Endereço</label>
-                            <input type="text" id="address" class="form-control" required>
-                        </div>
+                    <div class="col-6">
+                        Cartão final: <span>{{ substr($cartao->numeracao, -4) }}</span>
                     </div>
-                    <div class="col-sm-2 col-md-2 col-xs-2">
-                            <div class="form-group">
-                                <label for="number">Número</label>
-                                <input type="number" id="number" class="form-control" required>
-                            </div>
+
+                    <div class="col-6">
+                        Bandeira: <span>{{$cartao->bandeira}}</span>
                     </div>
-                    <div class="col-sm-4 col-md-4 col-xs-4">
-                        <div class="form-group">
-                            <label for="complement">Complemento</label>
-                            <input type="text" id="complement" class="form-control">
-                        </div>
+
+                    <div class="col-6">
+                        <form action="{{ route('card') }}" method="POST">
+                            <input type="hidden" value="{{ $cartao->cliente_id }}" name="user">
+                            <input type="hidden" value="{{ $cartao->id }}" name="card">
+                            {{ csrf_field() }}
+                            <button type="submit">Editar</button>
+                        </form>
+                    </div>
+
+                    <div class="col-6">
+                        <form action=" {{ route('card') }}" method="POST">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                <input type="hidden" value="{{ $cartao->id }}" name="card">
+                                <button type="submit">Remover</button>
+                        </form>
                     </div>
                 </div>
-            </form>
-        </div>                
+                <hr>
+            @endforeach
+        </div>
+</div>                
     </div>
 @endsection

@@ -102,7 +102,7 @@
                             </div>
 
                             <div class="col-6">
-                                <form action=" {{ route('card') }} ">
+                                <form action=" {{ route('card') }}" method="POST">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="hidden" value="{{ $cartao->id }}" name="card">

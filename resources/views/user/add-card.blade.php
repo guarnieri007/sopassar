@@ -63,7 +63,7 @@
                         </div>
                     </div>
 
-                    <div class="col-6">
+                    <div class="col-6 offset-3">
                         <div class="form-group">
                             <label for="cvc">CVC</label>
                             <input type="number" id="cvc" name="cvc" class="form-control" required>
@@ -74,6 +74,20 @@
                         </span>
                         @endif
                     </div>
+
+
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="endereco">Endereço</label>
+                            <input type="text" id="endereco" name="endereco" class="form-control" required>
+                        </div>
+                        @if ($errors->has('endereco'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('endereco') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+
 
                     <div class="col-6">
                             <div class="form-group">
@@ -126,12 +140,12 @@
                         <input type="hidden" name="url" class="form-control" value="{{url()->previous()}}">
                         </div>
                         @if ($errors->has('estado'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('estado') }}</strong>
-                                    </span>
-                                @endif
+                            <span class="help-block">
+                                <strong>{{ $errors->first('estado') }}</strong>
+                            </span>
+                        @endif
                     </div>
-                    
+                    <input type="hidden" name="url" value="{{ url()->previous() }}">
                     {{ csrf_field() }}
                     <div class="col-12">
                         <label>Deseja Salvar?</label>

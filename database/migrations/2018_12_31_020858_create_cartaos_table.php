@@ -26,7 +26,7 @@ class CreateCartaosTable extends Migration
             $table->string('cvc');
             $table->string('endereco');
             $table->string('numero');
-            $table->string('complemento');
+            $table->string('complemento')->nullable();
             $table->string('bairro');
             $table->string('cidade');
             $table->string('estado');

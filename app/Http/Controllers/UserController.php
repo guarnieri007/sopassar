@@ -103,19 +103,20 @@ class UserController extends Controller
         $cartao = new Cartao();
         $cartao = Cartao::find($request->card);
         $cartao->titular = $request->titular;
-        $cartao->numerecao = $request->numerecao;
+        $cartao->numeracao = $request->numeracao;
         $cartao->cvc = $request->cvc;
         $cartao->mes = $request->mes;
         $cartao->ano = $request->ano;
+        $cartao->bandeira = $request->bandeira;
         $cartao->endereco = $request->endereco;
         $cartao->numero = $request->numero;
         $cartao->complemento = $request->complemento;
         $cartao->bairro = $request->bairro;
         $cartao->cidade = $request->cidade;
         $cartao->estado = $request->estado;
-        $cartao->cliente_id = $request->cliente_id;
+        $cartao->cliente_id = Auth()->user()->id;
         $cartao->save();
-        return redirect(url()->previous());
+        return redirect($request->url);
     }
 
     public function postCard(Request $request) {
@@ -134,19 +135,20 @@ class UserController extends Controller
         ]);
         $cartao = new Cartao();
         $cartao->titular = $request->titular;
-        $cartao->numerecao = $request->numerecao;
+        $cartao->numeracao = $request->numeracao;
         $cartao->cvc = $request->cvc;
         $cartao->mes = $request->mes;
         $cartao->ano = $request->ano;
+        $cartao->bandeira = $request->bandeira;
         $cartao->endereco = $request->endereco;
         $cartao->numero = $request->numero;
         $cartao->complemento = $request->complemento;
         $cartao->bairro = $request->bairro;
         $cartao->cidade = $request->cidade;
         $cartao->estado = $request->estado;
-        $cartao->cliente_id = $request->cliente_id;
+        $cartao->cliente_id = Auth()->user()->id;
         $cartao->save();
-        return redirect(url()->previous());
+        return redirect($request->url);
     }
 
     public function deleteCard(Request $request) {
