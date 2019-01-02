@@ -41,6 +41,6 @@ class CreateCartaosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cartaos');
+        Schema::dropIfExists('cartoes');
     }
 }
