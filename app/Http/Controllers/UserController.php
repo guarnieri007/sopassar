@@ -55,7 +55,6 @@ class UserController extends Controller
             'bairro' => 'required',
             'cidade' => 'required',
             'estado' => 'required',
-            'url' => 'required'
         ]);
         $id = $request->input('address');
         $endereco = new Endereco();
@@ -87,9 +86,77 @@ class UserController extends Controller
         return redirect($url);
     }
 
-    public function getCard(Request $request) {
+    public function putCard(Request $request) {
+        $this->validate($request, [
+            'titular' => 'required',
+            'numeracao' => 'required',
+            'cvc' => 'required',
+            'mes' => 'required',
+            'ano' => 'required',
+            'endereco' => 'required',
+            'numero' => 'required',
+            'complemento' => 'nullable',
+            'bairro' => 'required',
+            'cidade' => 'required',
+            'estado' => 'required',
+        ]);
+        $cartao = new Cartao();
         $cartao = Cartao::find($request->card);
-        var_dump($cartao);
-        die();
+        $cartao->titular = $request->titular;
+        $cartao->numerecao = $request->numerecao;
+        $cartao->cvc = $request->cvc;
+        $cartao->mes = $request->mes;
+        $cartao->ano = $request->ano;
+        $cartao->endereco = $request->endereco;
+        $cartao->numero = $request->numero;
+        $cartao->complemento = $request->complemento;
+        $cartao->bairro = $request->bairro;
+        $cartao->cidade = $request->cidade;
+        $cartao->estado = $request->estado;
+        $cartao->cliente_id = $request->cliente_id;
+        $cartao->save();
+        return redirect(url()->previous());
+    }
+
+    public function postCard(Request $request) {
+        $this->validate($request, [
+            'titular' => 'required',
+            'numeracao' => 'required',
+            'cvc' => 'required',
+            'mes' => 'required',
+            'ano' => 'required',
+            'endereco' => 'required',
+            'numero' => 'required',
+            'complemento' => 'nullable',
+            'bairro' => 'required',
+            'cidade' => 'required',
+            'estado' => 'required',
+        ]);
+        $cartao = new Cartao();
+        $cartao->titular = $request->titular;
+        $cartao->numerecao = $request->numerecao;
+        $cartao->cvc = $request->cvc;
+        $cartao->mes = $request->mes;
+        $cartao->ano = $request->ano;
+        $cartao->endereco = $request->endereco;
+        $cartao->numero = $request->numero;
+        $cartao->complemento = $request->complemento;
+        $cartao->bairro = $request->bairro;
+        $cartao->cidade = $request->cidade;
+        $cartao->estado = $request->estado;
+        $cartao->cliente_id = $request->cliente_id;
+        $cartao->save();
+        return redirect(url()->previous());
+    }
+
+    public function deleteCard(Request $request) {
+        $cartao = new Cartao();
+        $cartao = Cartao::find($request->card);
+        $cartao->delete();
+        return redirect(url()->previous());
+    }
+
+    public function getCard(){
+        return view('user.add-card');
     }
 }

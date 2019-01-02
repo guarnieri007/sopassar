@@ -61,6 +61,7 @@
                 <h2>Cartões</h2>
              </div>
                 <div class="collapse navbar-collapse col-10 offset-1" id="cartao">
+                        <p><a href="{{ route('card') }}">Para adicionar um novo cartão, clique aqui.</a></p>
                     @foreach ($cartoes as $cartao)
                         <div class="row">
                             <div class="col-6">
@@ -92,7 +93,7 @@
                             </div>
 
                             <div class="col-6">
-                                <form action="{{ route('edit-card') }}" method="POST">
+                                <form action="{{ route('card') }}" method="POST">
                                     <input type="hidden" value="{{ $cartao->cliente_id }}" name="user">
                                     <input type="hidden" value="{{ $cartao->id }}" name="card">
                                     {{ csrf_field() }}
@@ -101,7 +102,7 @@
                             </div>
 
                             <div class="col-6">
-                                <form action=" {{ route('edit-card') }} ">
+                                <form action=" {{ route('card') }} ">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="hidden" value="{{ $cartao->id }}" name="card">

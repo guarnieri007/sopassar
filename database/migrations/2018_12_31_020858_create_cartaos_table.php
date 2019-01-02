@@ -19,6 +19,8 @@ class CreateCartaosTable extends Migration
             $table->unsignedInteger('cliente_id');
             $table->foreign('cliente_id')->references('id')->on('users');
             $table->string('titular');
+            $table->string('mes');
+            $table->string('ano');
             $table->string('numeracao');
             $table->string('bandeira');
             $table->string('cvc');
