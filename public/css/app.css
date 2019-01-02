@@ -12,7 +12,7 @@
     --color11: #4A91C7;
 
     --sombra_navbar: #1E216E;
-
+    --sombra-4: rgba(255, 239, 8, 0.4);
     padding: 0px;
     margin: 0px;
 }
@@ -130,6 +130,8 @@ div ul {
 
 .explicacao {
     width: 85%;
+    margin-top: 20%;
+    margin-bottom: 20%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -209,6 +211,11 @@ body .navbar * {
 
 .navbar button:focus {
     background-color: #3E4F69;
+}
+
+.dropdown-menu.esquerda {
+    right: 0px;
+    left: unset;
 }
 
 #carrinho {
@@ -382,6 +389,19 @@ body .navbar * {
     box-shadow: -4px 4px 0px 2px rgba(0, 0, 0, 0.2);
 }
 
+.checkout.row > div:first-child {
+    padding-top: 2rem;
+}
+
+.checkout.row > div:last-of-type {
+    padding-bottom: 2rem;
+}
+
+.checkout.row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
 .checkout > div h2 {
     text-align: center;
     font-size: 2rem;
@@ -412,42 +432,74 @@ body .navbar * {
 
 /* carrinho */
 
-.carrinho_listar.list-group-item {
-    display: flex;
-}
-
-.carrinho_listar.list-group-item div {
-    align-self: center;
-    display: flex;
-}
-
-.carrinho_listar.list-group-item div * {
-    margin-left: auto;
-    margin-right: auto;
+.carrinho_header div:nth-child(3) {
+    text-align: center;
 }
 
 /*badge quantidade*/
-.carrinho_listar.list-group-item div:nth-child(1) {
+.carrinho_itens div:nth-child(1) {
     vertical-align: bottom;
     font-size: 1.15rem;
 }
 
-/*product name*/
-.carrinho_listar.list-group-item div:nth-child(2) {
-    display: initial;
-}
-
 /* price */
-.carrinho_listar.list-group-item div:nth-child(3) {
-    font-size: 1.1rem;
+.carrinho_itens div:nth-child(3) {
+    font-size: 0.8rem;
+    margin-left: 0px;
+    position: relative;
+    font-family: Gravidade;
+    /* badge and badge success class*/
+    color: var(--color5);
+    display: inline-block;
+    font-weight: 700;
+    line-height: 2rem;
+    height: 2rem;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    /*badge class*/
 }
 
 /* Action*/
-.carrinho_listar.list-group-item div:nth-child(4) button {
+.carrinho_itens div:nth-child(4) button {
     font-size: 0.8rem;
+    padding: 0.6rem 0.2rem;
 }
 
 /* Fim do usuário e senha */
+
+.basico.row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.basico.row div {
+    background-color: var(--color2);
+    color: #D8CA07;
+    text-shadow: #000 0px 1px 1px, var(--color2) 0px -1px 1px, var(--color2) 1px 0px 1px, #000 -1px 0px 1px;
+}
+
+.basico.row div[data-toggle="collapse"] h2 {
+    font-size: 1.2rem;
+    line-height: 2.2rem;
+    text-align: center;
+    font-family: Titania-Regular;
+    background-color: var(--color5);
+    padding: 0.5rem 0px;
+    
+}
+.basico.row .collapse .row div {
+    color: aliceblue;
+}
+
+.basico.row .collapse .row div span {
+    color: var(--color4);
+}
+
+.basico.row .collapse .row div:last-of-type {
+    margin-bottom: 1.5rem;
+}
+
 
 /* Extra small devices (portrait phones, less than 576px)*/
 @media (max-width: 575.98px) {
@@ -473,7 +525,7 @@ body .navbar * {
     }
 }
 /* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) and (max-width: 767.98px) {
+@media (min-width: 576px) {
 
     .navbar .collapse .navbar-nav .dropdown-item:focus, .navbar .collapse .navbar-nav .dropdown-item:hover {
         text-decoration: none;
@@ -528,7 +580,7 @@ body .navbar * {
 }
 
 /* Medium devices (tablets, 768px and up)*/
-@media (min-width: 768px) and (max-width: 991.98px) {
+@media (min-width: 768px) {
     .navbar .collapse .navbar-nav .dropdown-item:focus, .navbar .collapse .navbar-nav .dropdown-item:hover {
         text-decoration: none;
         background-color: initial;
@@ -563,7 +615,7 @@ body .navbar * {
 }
 
 /* Large devices (desktops, 992px and up)*/
-@media (min-width: 992px) and (max-width: 1199.98px) {
+@media (min-width: 992px) {
 
     .senha {
         width: 50%;
@@ -575,6 +627,7 @@ body .navbar * {
 
     .explicacao {
         width: 80%;
+        min-height: 80%;
         margin: 10% auto;
     }
     .carousel .mySlides a {

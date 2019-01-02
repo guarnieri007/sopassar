@@ -8,4 +8,8 @@ class Endereco extends Model
 {
     protected $fillable = ['responsavel', 'endereco', 'numero', 'complemento', 'bairro', 'cidade', 'estado', 'cliente_id'];
 
+    public function usuario()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

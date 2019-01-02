@@ -26,4 +26,15 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function enderecos()
+    {
+        return $this->hasMany('App\Endereco');
+    }
+
+
+    public function cartoes()
+    {
+        return $this->hasMany('App\Cartao');
+    }
 }

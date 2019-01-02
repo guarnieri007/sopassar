@@ -7,6 +7,7 @@ use App\Endereco;
 use App\Cart;
 use Session;
 use App\Produto;
+use App\Cartao;
 
 class CheckoutController extends Controller
 {
@@ -44,7 +45,9 @@ class CheckoutController extends Controller
         $cart = new Cart($oldCart);
         $total = $cart->totalPrice;
         $enderecos = Endereco::all()->where('cliente_id', auth()->user()->id);
-        return view('shop.checkout')->with('total', $total)->with('enderecos', $enderecos);
+        $cartao = new Cartao();
+        $cartao = Cartao::all()->where('cliente_id', Auth()->user()->id);
+        return view('shop.checkout')->with('total', $total)->with('enderecos', $enderecos)->with('cartoes', $cartao);
     }
 
 }

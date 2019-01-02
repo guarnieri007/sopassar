@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Endereco;
 use App\Cart;
+use App\Cartao;
 use Session;
 
 class UserController extends Controller
@@ -68,5 +69,27 @@ class UserController extends Controller
         $endereco->estado = $request->input('estado');
         $endereco->save();
         return redirect($request->input('url'));
+    }
+
+    public function myProfile(){
+        $endereco = new Endereco();
+        $endereco = Endereco::all()->where('cliente_id', Auth()->user()->id);
+        $cartao = new Cartao();
+        $cartao = Cartao::all()->where('cliente_id', Auth()->user()->id);
+        return view('user.profile')->with('enderecos', $endereco)->with('cartoes', $cartao);
+    }
+
+    public function deleteAddress(Request $request) {
+        $url = url()->previous();
+        $endereco = new Endereco();
+        $endereco = Endereco::find($request->address);
+        $endereco->delete();
+        return redirect($url);
+    }
+
+    public function getCard(Request $request) {
+        $cartao = Cartao::find($request->card);
+        var_dump($cartao);
+        die();
     }
 }

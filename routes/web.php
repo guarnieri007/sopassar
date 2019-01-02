@@ -15,16 +15,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 */
+/* Route::get('/home', 'HomeController@index')->name('home'); */
 Route::get('/', 'PagesController@index')->name('home');
 
 Auth::routes();
 
-Route::get('/add-to-cart/{id}', 'CheckoutController@cartAdd')->name('cart.add')->middleware('auth');
-Route::get('/shopping-cart', 'CheckoutController@cartGet')->name('shoppingCart')->middleware('auth');
-Route::get('/checkout', 'CheckoutController@getCheckout')->name('checkout')->middleware('auth');
-Route::get('/user/address', 'UserController@getAddress')->name('getAddress')->middleware('auth');
-Route::post('/user/address', 'UserController@address')->name('postAddress')->middleware('auth');
-Route::post('/user/edit-address', 'UserController@getToUpdateAddress')->name('edit-address')->middleware('auth');
-Route::put('/user/edit-address', 'UserController@updateAddress')->name('edit-address')->middleware('auth');
+/* Configured middleware for all the rotes bellow */
+Route::middleware(['auth'])->group(function () {
 
-/* Route::get('/home', 'HomeController@index')->name('home'); */
+    Route::get('/add-to-cart/{id}', 'CheckoutController@cartAdd')->name('cart.add');
+    Route::get('/shopping-cart', 'CheckoutController@cartGet')->name('shoppingCart');
+    Route::get('/checkout', 'CheckoutController@getCheckout')->name('checkout');
+    Route::get('/user/address', 'UserController@getAddress')->name('getAddress');
+    Route::post('/user/address', 'UserController@address')->name('postAddress');
+    Route::post('/user/edit-address', 'UserController@getToUpdateAddress')->name('edit-address');
+    Route::put('/user/edit-address', 'UserController@updateAddress')->name('edit-address');
+    Route::delete('/user/delete-address', 'UserController@deleteAddress')->name('delete-address');
+    Route::get('/user/profile', 'UserController@myProfile')->name('profile');
+    Route::post('/user/edit-card', 'UserController@getCard')->name('edit-card');
+});

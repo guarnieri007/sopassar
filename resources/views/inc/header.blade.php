@@ -17,20 +17,19 @@
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   {{ Auth::user()->name }}
               </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                  <a href="{{ route('logout') }}"
-                                      onclick="event.preventDefault();
-                                               document.getElementById('logout-form').submit();" class="dropdown-item">
-                                      Logout
-                                  </a>
-                                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                      {{ csrf_field() }}
-                                  </form>
-                                  <div class="dropdown-divider"></div>
-                                  <a class="dropdown-item" href="#">Meus Pedidos</a>
-                          </div>
-                        </li>
-                 @endguest
+              <div class="dropdown-menu esquerda" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{{ route('profile') }}">Meu Perfil</a>
+                  <div class="dropdown-divider"></div>
+                  <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                   document.getElementById('logout-form').submit();" class="dropdown-item">
+                    Logout
+                  </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                      {{ csrf_field() }}
+                    </form>
+                </div>
+              </li>
+        @endguest
     </ul>
   </div>
 </nav>

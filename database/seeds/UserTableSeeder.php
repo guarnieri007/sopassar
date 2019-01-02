@@ -17,5 +17,12 @@ class UserTableSeeder extends Seeder
             'name' => 'Felipe Guarnieri',
         ]);
         $user->save();
+
+        $user = new App\User([
+            'password' => '$2y$10$iAyH0IGUm4IZmArOgp6VGe4rfcAw1e.R3n304LRPuk7jdg7HgJgQ2',
+            'email' => '123@teste.com',
+            'name' => 'Yan Jo',
+        ]);
+        $user->save();
     }
 }

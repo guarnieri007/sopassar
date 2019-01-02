@@ -67,7 +67,16 @@
             <h2>Você não tem endereço cadastrado, <a href="{{route('getAddress')}}">clique aqui</a> e cadastre um para prosseguir.</h2>
 
             @endif
+
             <hr>
+            @if (count($cartoes) > 0)
+            @foreach ($cartoes as $cartao)
+            {{$cartao->bandeira}}
+        @endforeach
+            @else
+                sem cartão
+            @endif
+            
             <h2>Forma de pagamento</h2>
             <p>Cartão de crédito</p>
             <form action="{{route('checkout')}}" method="POST">
