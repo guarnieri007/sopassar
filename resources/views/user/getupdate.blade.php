@@ -4,6 +4,7 @@
 <div class="row checkout">
     <div class="col-8 col-md-6 offset-md-3 offset-2">
         <h2>Alterar endereço</h2>
+        <p><a href="{{ url()->previous() }}">voltar</a></p>
         <form action="{{route('edit-address')}}" method="POST">
             <input type="hidden" name="_method" value="PUT">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">

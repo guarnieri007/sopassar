@@ -4,6 +4,7 @@
     <div class="row checkout">
         <div class="col-8 col-md-6 offset-md-3 offset-2">
             <h2>Cadastrar novo endereço</h2>
+        <p><a href="{{ url()->previous() }}">voltar</a></p>
             <form action="{{route('postAddress')}}" method="POST">
                 <div class="row">
                     <div class="col-12">
