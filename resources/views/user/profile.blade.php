@@ -93,7 +93,7 @@
                             </div>
 
                             <div class="col-6">
-                                <form action="{{ route('card') }}" method="POST">
+                                <form action="{{ route('updatecard') }}" method="POST">
                                     <input type="hidden" value="{{ $cartao->cliente_id }}" name="user">
                                     <input type="hidden" value="{{ $cartao->id }}" name="card">
                                     {{ csrf_field() }}

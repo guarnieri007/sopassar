@@ -12,4 +12,5 @@ class Endereco extends Model
     {
         return $this->belongsTo('App\User');
     }
+
 }

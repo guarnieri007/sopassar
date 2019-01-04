@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Endereco;
 use App\Cart;
 use App\Cartao;
@@ -75,6 +76,9 @@ class UserController extends Controller
         $endereco = Endereco::all()->where('cliente_id', Auth()->user()->id);
         $cartao = new Cartao();
         $cartao = Cartao::all()->where('cliente_id', Auth()->user()->id);
+        foreach ($cartao as $card) {
+            $card->decrypt();
+        }
         return view('user.profile')->with('enderecos', $endereco)->with('cartoes', $cartao);
     }
 
@@ -101,7 +105,7 @@ class UserController extends Controller
             'estado' => 'required',
         ]);
         $cartao = new Cartao();
-        $cartao = Cartao::find($request->card);
+        $cartao = Cartao::find($request->id);
         $cartao->titular = $request->titular;
         $cartao->numeracao = $request->numeracao;
         $cartao->cvc = $request->cvc;
@@ -115,6 +119,7 @@ class UserController extends Controller
         $cartao->cidade = $request->cidade;
         $cartao->estado = $request->estado;
         $cartao->cliente_id = Auth()->user()->id;
+        $cartao->encrypt();
         $cartao->save();
         return redirect($request->url);
     }
@@ -147,6 +152,7 @@ class UserController extends Controller
         $cartao->cidade = $request->cidade;
         $cartao->estado = $request->estado;
         $cartao->cliente_id = Auth()->user()->id;
+        $cartao->encrypt();
         $cartao->save();
         return redirect($request->url);
     }
@@ -156,6 +162,13 @@ class UserController extends Controller
         $cartao = Cartao::find($request->card);
         $cartao->delete();
         return redirect(url()->previous());
+    }
+
+    public function updateCard(Request $request) {
+        $cartao = new Cartao();
+        $cartao = Cartao::find($request->card);
+        $cartao->decrypt();
+        return view('user.edit-card')->with('cartao', $cartao);
     }
 
     public function getCard(){

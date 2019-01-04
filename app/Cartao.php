@@ -18,4 +18,20 @@ class Cartao extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function decrypt()
+    {
+        $this->numeracao = decrypt($this->numeracao);
+        $this->cvc = decrypt($this->cvc);
+        $this->mes = decrypt($this->mes);
+        $this->ano = decrypt($this->ano);
+    }
+
+    public function encrypt() 
+    {
+        $this->numeracao = encrypt($this->numeracao);
+        $this->cvc = encrypt($this->cvc);
+        $this->mes = encrypt($this->mes);
+        $this->ano = encrypt($this->ano);
+    }
 }

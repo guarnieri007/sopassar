@@ -47,6 +47,9 @@ class CheckoutController extends Controller
         $enderecos = Endereco::all()->where('cliente_id', auth()->user()->id);
         $cartao = new Cartao();
         $cartao = Cartao::all()->where('cliente_id', Auth()->user()->id);
+        foreach ($cartao as $card) {
+            $card->decrypt();
+        }
         return view('shop.checkout')->with('total', $total)->with('enderecos', $enderecos)->with('cartoes', $cartao);
     }
 

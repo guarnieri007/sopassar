@@ -34,6 +34,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/user/profile', 'UserController@myProfile')->name('profile');
     Route::get('/user/edit-card', 'UserController@getCard')->name('card');
     Route::post('/user/edit-card', 'UserController@postCard')->name('card');
+    Route::post('/user/update-card', 'UserController@updateCard')->name('updatecard');
     Route::delete('/user/edit-card', 'UserController@deleteCard')->name('card');
     Route::put('/user/edit-card', 'UserController@putCard')->name('card');
 });
