@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Endereco;
 use App\Cart;
 use App\Cartao;
+use App\Telefone;
 use Session;
 
 class UserController extends Controller
@@ -79,7 +80,9 @@ class UserController extends Controller
         foreach ($cartao as $card) {
             $card->decrypt();
         }
-        return view('user.profile')->with('enderecos', $endereco)->with('cartoes', $cartao);
+        $telefones = new Telefone();
+        $telefones = Telefone::all()->where('cliente_id', Auth()->user()->id);
+        return view('user.profile')->with('enderecos', $endereco)->with('cartoes', $cartao)->with('telefones', $telefones);
     }
 
     public function deleteAddress(Request $request) {
@@ -106,20 +109,7 @@ class UserController extends Controller
         ]);
         $cartao = new Cartao();
         $cartao = Cartao::find($request->id);
-        $cartao->titular = $request->titular;
-        $cartao->numeracao = $request->numeracao;
-        $cartao->cvc = $request->cvc;
-        $cartao->mes = $request->mes;
-        $cartao->ano = $request->ano;
-        $cartao->bandeira = $request->bandeira;
-        $cartao->endereco = $request->endereco;
-        $cartao->numero = $request->numero;
-        $cartao->complemento = $request->complemento;
-        $cartao->bairro = $request->bairro;
-        $cartao->cidade = $request->cidade;
-        $cartao->estado = $request->estado;
-        $cartao->cliente_id = Auth()->user()->id;
-        $cartao->encrypt();
+        $cartao->set($request);
         $cartao->save();
         return redirect($request->url);
     }
@@ -139,20 +129,7 @@ class UserController extends Controller
             'estado' => 'required',
         ]);
         $cartao = new Cartao();
-        $cartao->titular = $request->titular;
-        $cartao->numeracao = $request->numeracao;
-        $cartao->cvc = $request->cvc;
-        $cartao->mes = $request->mes;
-        $cartao->ano = $request->ano;
-        $cartao->bandeira = $request->bandeira;
-        $cartao->endereco = $request->endereco;
-        $cartao->numero = $request->numero;
-        $cartao->complemento = $request->complemento;
-        $cartao->bairro = $request->bairro;
-        $cartao->cidade = $request->cidade;
-        $cartao->estado = $request->estado;
-        $cartao->cliente_id = Auth()->user()->id;
-        $cartao->encrypt();
+        $cartao->set($request);
         $cartao->save();
         return redirect($request->url);
     }
@@ -173,5 +150,48 @@ class UserController extends Controller
 
     public function getCard(){
         return view('user.add-card');
+    }
+
+    public function getTelefone() {
+        return view('user.add-telefone');
+    }
+
+    public function postTelefone(Request $request) {
+        $this->validate($request, [
+            'telefone' => 'required',
+            'tipo' => 'required',
+            'url' => 'required',
+        ]);
+        $telefone = new Telefone();
+        $telefone->set($request);
+        return redirect($request->url);
+    }
+
+    public function updateTelefone(Request $request)
+    {
+        $telefone = new Telefone();
+        $telefone = Telefone::find($request->id);
+        return view('user.edit-telefone')->with('telefone', $telefone);
+    }
+
+    public function putTelefone(Request $request)
+    {
+        $this->validate($request, [
+            'telefone' => 'required',
+            'tipo' => 'required',
+            'url' => 'required',
+        ]);
+        $telefone = new Telefone();
+        $telefone = Telefone::find($request->id);
+        $telefone->set($request);
+        return redirect($request->url);
+    }
+
+    public function deleteTelefone(Request $request)
+    {
+        $telefone = new Telefone();
+        $telefone = Telefone::find($request->id);
+        $telefone->delete();
+        return redirect(url()->previous());
     }
 }

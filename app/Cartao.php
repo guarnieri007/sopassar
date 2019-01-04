@@ -34,4 +34,21 @@ class Cartao extends Model
         $this->mes = encrypt($this->mes);
         $this->ano = encrypt($this->ano);
     }
+
+    public function set($request) {
+        $this->titular = $request->titular;
+        $this->numeracao = $request->numeracao;
+        $this->cvc = $request->cvc;
+        $this->mes = $request->mes;
+        $this->ano = $request->ano;
+        $this->bandeira = $request->bandeira;
+        $this->endereco = $request->endereco;
+        $this->numero = $request->numero;
+        $this->complemento = $request->complemento;
+        $this->bairro = $request->bairro;
+        $this->cidade = $request->cidade;
+        $this->estado = $request->estado;
+        $this->cliente_id = Auth()->user()->id;
+        $this->encrypt();
+    }
 }

@@ -32,9 +32,16 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/user/edit-address', 'UserController@updateAddress')->name('edit-address');
     Route::delete('/user/delete-address', 'UserController@deleteAddress')->name('delete-address');
     Route::get('/user/profile', 'UserController@myProfile')->name('profile');
+
     Route::get('/user/edit-card', 'UserController@getCard')->name('card');
     Route::post('/user/edit-card', 'UserController@postCard')->name('card');
     Route::post('/user/update-card', 'UserController@updateCard')->name('updatecard');
     Route::delete('/user/edit-card', 'UserController@deleteCard')->name('card');
     Route::put('/user/edit-card', 'UserController@putCard')->name('card');
+
+    Route::get('/user/add-telefone', 'UserController@getTelefone')->name('getTelefone');
+    Route::post('/user/post-telefone', 'UserController@postTelefone')->name('postTelefone');
+    Route::post('/user/update-telefone', 'UserController@updateTelefone')->name('updateTelefone');
+    Route::delete('/user/remove-telefone', 'UserController@deleteTelefone')->name('deleteTelefone');
+    Route::put('/user/update-telefone', 'UserController@putTelefone')->name('putTelefone');
 });
