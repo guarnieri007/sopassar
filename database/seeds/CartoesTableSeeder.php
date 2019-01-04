@@ -64,7 +64,5 @@ class CartoesTableSeeder extends Seeder
         ]);
         $cartao->encrypt();
         $cartao->save();
-
-
     }
 }
