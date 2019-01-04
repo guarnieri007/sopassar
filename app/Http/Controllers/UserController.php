@@ -12,7 +12,7 @@ use Session;
 class UserController extends Controller
 {
     public function getAddress() {
-        return view('user.address');
+        return view('user.add-address');
     }
 
     public function address(Request $request) {
