@@ -2,7 +2,7 @@
 
 @section('conteudo')
     <div class="row checkout">
-        <div class="col-8 col-md-6 offset-md-3 offset-2">
+        <div class="col-10 col-lg-6 offset-lg-3 offset-1">
             <h2>Editar Telefone</h2>
         <p><a href="{{ url()->previous() }}">voltar</a></p>
             <form action="{{route('putTelefone')}}" method="POST">

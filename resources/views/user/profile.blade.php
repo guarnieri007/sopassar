@@ -3,14 +3,14 @@
 @section('conteudo')
     <div>
         <div class="row basico">
-            <div class="col-10 offset-1">
+            <div class="col-10 col-lg-6 offset-lg-3 offset-1">
                 <h1>Meu Perfil</h1>
                 <p>Clique nos itens abaixo que deseja verificar</p>
             </div>
-            <div class="col-10 offset-1" data-toggle="collapse" data-target="#endereco" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="col-10 col-lg-6 offset-lg-3 offset-1" data-toggle="collapse" data-target="#endereco" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                <h2>Endereços</h2>
             </div>
-            <div class="collapse navbar-collapse col-10 offset-1" id="endereco">
+            <div class="collapse navbar-collapse col-10 col-lg-6 offset-lg-3 offset-1" id="endereco">
                 <p>Para adicionar um novo endereço, <a href="{{ route('getAddress') }}">clique aqui.</a></p>
                 @if (count($enderecos) > 0)
                     @foreach ($enderecos as $endereco)
@@ -66,10 +66,10 @@
 
             </div>
 
-            <div class="col-10 offset-1" data-toggle="collapse" data-target="#cartao" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="col-10 col-lg-6 offset-lg-3 offset-1" data-toggle="collapse" data-target="#cartao" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <h2>Cartões</h2>
              </div>
-                <div class="collapse navbar-collapse col-10 offset-1" id="cartao">
+                <div class="collapse navbar-collapse col-10 col-lg-6 offset-lg-3 offset-1" id="cartao">
                         <p>Para adicionar um novo cartão, <a href="{{ route('card') }}">clique aqui.</a></p>
                         @if (count($cartoes) > 0)
                             @foreach ($cartoes as $cartao)
@@ -131,10 +131,10 @@
                         @endif
 
                 </div>
-             <div class="col-10 offset-1" data-toggle="collapse" data-target="#telefone" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+             <div class="col-10 col-lg-6 offset-lg-3 offset-1" data-toggle="collapse" data-target="#telefone" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <h2>Telefones</h2>
              </div>
-             <div class="collapse navbar-collapse col-10 offset-1" id="telefone">
+             <div class="collapse navbar-collapse col-10 col-lg-6 offset-lg-3 offset-1" id="telefone">
                  @if (count($telefones) > 0)
              <p>Adicionar outro telefone? Então <a href="{{ route('getTelefone') }}">clique aqui</a>.</p>
                     @foreach ($telefones as $telefone)
