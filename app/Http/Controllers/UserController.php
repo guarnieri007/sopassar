@@ -149,7 +149,36 @@ class UserController extends Controller
     }
 
     public function getCard(){
-        return view('user.add-card');
+
+        /** Geting the user id from pagseguro **/
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+          CURLOPT_URL => "https://ws.sandbox.pagseguro.uol.com.br/v2/sessions/",
+          CURLOPT_RETURNTRANSFER => true,
+          CURLOPT_ENCODING => "",
+          CURLOPT_MAXREDIRS => 10,
+          CURLOPT_TIMEOUT => 30,
+          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+          CURLOPT_CUSTOMREQUEST => "POST",
+          CURLOPT_POSTFIELDS => "email=guarnieri007%40gmail.com&token=D8EA80FD9A424D7EB00B366DEAAAA315&undefined=",
+          CURLOPT_HTTPHEADER => array(
+            "Content-Type: application/x-www-form-urlencoded",
+            "Postman-Token: 39b0141b-2348-4a35-b2d3-cbdf5175f6e6",
+            "cache-control: no-cache"
+          ),
+        ));
+    
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+    
+        curl_close($curl);
+    
+        if ($err) {
+          echo "cURL Error #:" . $err;
+        }else {
+            $id = $response;
+        }
+        return view('user.add-card')->with('id', $id);
     }
 
     public function getTelefone() {

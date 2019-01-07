@@ -27,6 +27,30 @@
                         </div>
                     </div>
 
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="titular">CPF do Titular</label>
+                            <input type="text" id="cpf" name="cpf" class="form-control" placeholder="11122233344" value="{{$cartao->cpf}}" required>
+                            @if ($errors->has('titular'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('titular') }}</strong>
+                                    </span>
+                                @endif
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="titular">Nascimento do Titular</label>
+                            <input type="text" id="nascimento" name="nascimento" class="form-control" placeholder="01/01/2000" value="{{$cartao->nascimento}}" required>
+                            @if ($errors->has('titular'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('titular') }}</strong>
+                                    </span>
+                                @endif
+                        </div>
+                    </div>
+
                     <div class="col-12">
                         <div class="form-group">
                             <label for="numeracao">Numero do cartão</label>

@@ -5,8 +5,7 @@
         <div class="col-10 col-sm-10 col-md-8 col-lg-6 offset-md-2 offset-sm-1 offset-1 offset-lg-3">
             <h2>Checkout</h2>
             <h3>total: R${{ number_format($total, 2, ',', '.') }}</h3>
-
-
+            {{$id}}
             @if (count($enderecos) > 0)
             <div class="row">
                 <div class="col-12">

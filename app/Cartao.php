@@ -25,6 +25,8 @@ class Cartao extends Model
         $this->cvc = decrypt($this->cvc);
         $this->mes = decrypt($this->mes);
         $this->ano = decrypt($this->ano);
+        $this->cpf = decrypt($this->cpf);
+        $this->nascimento = decrypt($this->nascimento);
     }
 
     public function encrypt() 
@@ -33,10 +35,14 @@ class Cartao extends Model
         $this->cvc = encrypt($this->cvc);
         $this->mes = encrypt($this->mes);
         $this->ano = encrypt($this->ano);
+        $this->cpf = encrypt($this->cpf);
+        $this->nascimento = encrypt($this->nascimento);
     }
 
     public function set($request) {
         $this->titular = $request->titular;
+        $this->cpf = $request->cpf;
+        $this->nascimento = $request->nascimento;
         $this->numeracao = $request->numeracao;
         $this->cvc = $request->cvc;
         $this->mes = $request->mes;

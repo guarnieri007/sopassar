@@ -558,59 +558,12 @@ body .navbar * {
         background-position: 50% 70%;
     }
 
-    .carousel .mySlides h1 {
-        font-size: 3.3rem;
-    }
 
-    .carousel .mySlides {
-        height: 300px;
-    }
-
-    .carousel .mySlides img {
-        height: 300px;
-    }
-
-    .carousel .mySlides .unitario {
-        height: auto;
-        max-width: 80%;
-        max-height: 300px;
-        padding-top:15px;
-    }
 
 }
 
 /* Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) {
-    .navbar .collapse .navbar-nav .dropdown-item:focus, .navbar .collapse .navbar-nav .dropdown-item:hover {
-        text-decoration: none;
-        background-color: initial;
-        border-radius: 0px;
-    }
-    .navbar .collapse .navbar-nav {
-        text-decoration: none;
-        background-color: #132533;
-    }
-
-    .navbar-nav .dropdown-menu {
-        background-color: #1B3448;
-    }
-    .navbar-nav .dropdown-divider {
-        border-top: 1px solid #4A91C7;
-    }
-    .conteudo p {
-        padding-bottom: 9%;
-    }
-
-    .navbar-nav .nav-item #navbarDropdown {
-        padding-left: 1.5rem;
-    }
-
-    .carousel .mySlides a {
-        font-size: 1.6rem;
-        text-align: center;
-        margin-left: 37.5%;
-        width: 25%;
-    }
 
 }
 

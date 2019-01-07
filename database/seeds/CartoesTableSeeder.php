@@ -13,6 +13,8 @@ class CartoesTableSeeder extends Seeder
     {
         $cartao = new App\Cartao([
             'titular' => 'felipe guarnieri',
+            'cpf' => '39705856869',
+            'nascimento' => '1989-11-08',
             'numeracao' => '412345312312',
             'bandeira' => 'visa',
             'cvc' => '152',
@@ -31,6 +33,8 @@ class CartoesTableSeeder extends Seeder
 
         $cartao = new App\Cartao([
             'titular' => 'felipe guarnieri',
+            'cpf' => '39705856869',
+            'nascimento' => '1989-11-08',
             'numeracao' => '412157316452',
             'bandeira' => 'master',
             'cvc' => '192',
@@ -49,6 +53,8 @@ class CartoesTableSeeder extends Seeder
 
         $cartao = new App\Cartao([
             'titular' => 'Yang Twi',
+            'cpf' => '18425468732',
+            'nascimento' => '1989-11-08',
             'numeracao' => '14512357481649',
             'bandeira' => 'master',
             'cvc' => '147',

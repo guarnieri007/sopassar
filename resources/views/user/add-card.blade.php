@@ -27,6 +27,30 @@
                         </div>
                     </div>
 
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="titular">CPF do Titular</label>
+                            <input type="text" id="cpf" name="cpf" class="form-control" placeholder="11122233344" required>
+                            @if ($errors->has('titular'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('titular') }}</strong>
+                                    </span>
+                                @endif
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="titular">Nascimento do Titular</label>
+                            <input type="text" id="nascimento" name="nascimento" class="form-control" placeholder="01/01/2000" required>
+                            @if ($errors->has('titular'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('titular') }}</strong>
+                                    </span>
+                                @endif
+                        </div>
+                    </div>
+
                     <div class="col-12">
                         <div class="form-group">
                             <label for="numeracao">Numero do cartão</label>
@@ -45,7 +69,7 @@
                             <fieldset>
                                     <legend>Data de expiração</legend>
                                     <label for="mes">Mês</label>
-                                    <input type="number" id="mes" name="mes" class="form-control" required>
+                                    <input type="number" id="mes" name="mes" class="form-control" pattern=".{2,2}" placeholder="01" required>
                                     @if ($errors->has('mes'))
                                             <span class="help-block">
                                                 <strong>{{ $errors->first('mes') }}</strong>
@@ -53,7 +77,7 @@
                                         @endif
         
                                     <label for="ano">Ano</label>
-                                    <input type="number" id="ano" name="ano" class="form-control" required>
+                                    <input type="number" id="ano" name="ano" class="form-control" pattern=".{2,2}" placeholder="28" required>
                                     @if ($errors->has('ano'))
                                             <span class="help-block">
                                                 <strong>{{ $errors->first('ano') }}</strong>
@@ -155,4 +179,7 @@
             </form>
         </div>
     </div>
+
+<input type="hidden" name="customerId" id="customerId" value="{{ $id }}">
+    <script type="text/javascript" src="https://stc.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js"></script>
 @endsection
